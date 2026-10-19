@@ -1,0 +1,113 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect Xinelum",
+        "description": "Paste a web address from the Xinelum app. You find it in the app in the Automation tab under Fernstart per Webadresse: switch it on, then touch and hold an address to copy it. Home Assistant talks to the app directly on your local network, without a broker and without any server in between.",
+        "data": {
+          "adresse": "Web address from Xinelum"
+        },
+        "data_description": {
+          "adresse": "For example http://192.168.178.20:47474/xinelum/…/starten. Any of the three addresses works."
+        }
+      },
+      "zeroconf_bestaetigen": {
+        "title": "Xinelum found",
+        "description": "Xinelum is answering at {host}. Paste a web address from the app to finish.",
+        "data": {
+          "adresse": "Web address from Xinelum"
+        },
+        "data_description": {
+          "adresse": "In the Xinelum app in the Automation tab under Fernstart per Webadresse."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Xinelum no longer accepts the key",
+        "description": "Xinelum at {host} no longer accepts the stored key. If it was renewed in the app, paste the new web address.",
+        "data": {
+          "adresse": "Web address from Xinelum"
+        },
+        "data_description": {
+          "adresse": "In the Xinelum app in the Automation tab under Fernstart per Webadresse."
+        }
+      }
+    },
+    "error": {
+      "adresse_unlesbar": "This is not a Xinelum web address. Copy it in the app in the Automation tab under Fernstart per Webadresse.",
+      "nicht_erreichbar": "Nothing answers at this address. Is Xinelum open on the device that runs the cinema, and is Fernstart per Webadresse switched on?",
+      "abgelehnt": "Xinelum answers but does not accept this key. Copy the web address from the app again.",
+      "ruht": "Xinelum is running on this device but is not running the cinema right now. Use the address of the device that runs the cinema, ideally the Mac.",
+      "nicht_freigeschaltet": "Xinelum shares the cinema state only with the purchase „Erweiterte Smarthome-Anbindung“ (advanced smart home connection) or with Xinelum+. Both are in the Xinelum app under Extensions. The integration itself stays free.",
+      "unbekannte_antwort": "Something answers at this address, but it is not Xinelum."
+    },
+    "abort": {
+      "already_configured": "Xinelum is already set up.",
+      "reauth_successful": "The new key is accepted."
+    }
+  },
+  "issues": {
+    "nicht_freigeschaltet": {
+      "title": "Xinelum no longer delivers data",
+      "description": "Xinelum at {adresse} no longer shares the cinema state. Until the purchase „Erweiterte Smarthome-Anbindung“ or Xinelum+ is valid again, all entities stay unavailable. Both are in the Xinelum app under Extensions."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "kinozustand": {
+        "name": "Cinema state",
+        "state_attributes": {
+          "kinophase": {
+            "name": "Cinema phase"
+          },
+          "quelle": {
+            "name": "Source"
+          }
+        }
+      },
+      "bildformat": {
+        "name": "Aspect ratio"
+      },
+      "spielzeit": {
+        "name": "Playtime"
+      },
+      "konfidenz": {
+        "name": "Detection confidence"
+      }
+    },
+    "binary_sensor": {
+      "film_laeuft": {
+        "name": "Movie running"
+      },
+      "bildsignal": {
+        "name": "HDMI input signal"
+      }
+    },
+    "event": {
+      "ausloeser": {
+        "name": "Trigger",
+        "state_attributes": {
+          "event_type": {
+            "name": "Trigger",
+            "state": {
+              "menue": "Menu",
+              "filmstart": "Movie start",
+              "pause": "Paused",
+              "abspann-1": "Credits phase 1",
+              "abspann-2": "Credits phase 2",
+              "post-credit": "Post credit scene",
+              "filmende": "Movie ended",
+              "dunkel": "Screen dark",
+              "aufwachen": "Cinema wakes up",
+              "kein-bild": "No picture",
+              "format-4-3": "Aspect ratio 4:3",
+              "format-16-9": "Aspect ratio 16:9",
+              "format-1-85": "Aspect ratio 1.85:1",
+              "format-2-0": "Aspect ratio 2:1",
+              "format-21-9": "Aspect ratio 21:9"
+            }
+          }
+        }
+      }
+    }
+  }
+}

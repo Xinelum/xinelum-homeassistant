@@ -1,0 +1,14 @@
+{
+  "domain": "xinelum",
+  "name": "Xinelum",
+  "codeowners": ["@Xinelum"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://xinelum.app/integration/",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/Xinelum/xinelum-homeassistant/issues",
+  "requirements": [],
+  "version": "0.1.0",
+  "zeroconf": ["_xinelum-ha._tcp.local."]
+}

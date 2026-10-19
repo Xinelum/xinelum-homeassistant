@@ -1,0 +1,99 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Xinelum verbinden",
+        "description": "Füge eine Webadresse aus der Xinelum-App ein. Du findest sie in der App im Tab Automation unter Fernstart per Webadresse: Schalter an, eine Adresse gedrückt halten und kopieren. Home Assistant spricht direkt mit der App im Heimnetz, ohne Broker und ohne Umweg über einen Server.",
+        "data": {
+          "adresse": "Webadresse aus Xinelum"
+        },
+        "data_description": {
+          "adresse": "Zum Beispiel http://192.168.178.20:47474/xinelum/…/starten. Welche der drei Adressen du nimmst, ist egal."
+        }
+      },
+      "zeroconf_bestaetigen": {
+        "title": "Xinelum gefunden",
+        "description": "Unter {host} meldet sich Xinelum. Füge noch eine Webadresse aus der App ein.",
+        "data": {
+          "adresse": "Webadresse aus Xinelum"
+        },
+        "data_description": {
+          "adresse": "In der Xinelum-App im Tab Automation unter Fernstart per Webadresse."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Xinelum nimmt den Schlüssel nicht mehr",
+        "description": "Xinelum unter {host} nimmt den gespeicherten Schlüssel nicht mehr an. Wurde er in der App erneuert, füge die neue Webadresse ein.",
+        "data": {
+          "adresse": "Webadresse aus Xinelum"
+        },
+        "data_description": {
+          "adresse": "In der Xinelum-App im Tab Automation unter Fernstart per Webadresse."
+        }
+      }
+    },
+    "error": {
+      "adresse_unlesbar": "Das ist keine Webadresse von Xinelum. Kopiere sie in der App im Tab Automation unter Fernstart per Webadresse.",
+      "nicht_erreichbar": "Unter dieser Adresse antwortet nichts. Ist Xinelum auf dem Gerät geöffnet, das das Kino führt, und ist der Fernstart per Webadresse eingeschaltet?",
+      "abgelehnt": "Xinelum antwortet, nimmt diesen Schlüssel aber nicht an. Kopiere die Webadresse noch einmal aus der App.",
+      "ruht": "Xinelum läuft auf diesem Gerät, führt das Kino aber gerade nicht. Nimm die Adresse des Geräts, das das Kino führt, am besten den Mac.",
+      "nicht_freigeschaltet": "Xinelum gibt den Kinozustand erst mit dem Kauf „Erweiterte Smarthome-Anbindung“ oder mit Xinelum+ heraus. Beides findest du in der Xinelum-App unter Erweiterungen. Die Integration selbst bleibt kostenlos.",
+      "unbekannte_antwort": "Unter dieser Adresse antwortet zwar etwas, aber es ist kein Xinelum."
+    },
+    "abort": {
+      "already_configured": "Xinelum ist bereits eingerichtet.",
+      "reauth_successful": "Der neue Schlüssel wird angenommen."
+    }
+  },
+  "issues": {
+    "nicht_freigeschaltet": {
+      "title": "Xinelum liefert keine Daten mehr",
+      "description": "Xinelum unter {adresse} gibt den Kinozustand nicht mehr heraus. Bis der Kauf „Erweiterte Smarthome-Anbindung“ oder Xinelum+ wieder gilt, bleiben alle Entitäten nicht verfügbar. Beides findest du in der Xinelum-App unter Erweiterungen."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "kinozustand": {
+        "name": "Kinozustand",
+        "state_attributes": {
+          "kinophase": { "name": "Kinophase" },
+          "quelle": { "name": "Quelle" }
+        }
+      },
+      "bildformat": { "name": "Bildformat" },
+      "spielzeit": { "name": "Spielzeit" },
+      "konfidenz": { "name": "Konfidenz der Erkennung" }
+    },
+    "binary_sensor": {
+      "film_laeuft": { "name": "Film läuft" },
+      "bildsignal": { "name": "Bildsignal am HDMI-Eingang" }
+    },
+    "event": {
+      "ausloeser": {
+        "name": "Trigger",
+        "state_attributes": {
+          "event_type": {
+            "name": "Trigger",
+            "state": {
+              "menue": "Menübedienung",
+              "filmstart": "Filmstart",
+              "pause": "Pause",
+              "abspann-1": "Abspann Phase 1",
+              "abspann-2": "Abspann Phase 2",
+              "post-credit": "Post-Credit-Szene",
+              "filmende": "Filmende",
+              "dunkel": "Leinwand dunkel",
+              "aufwachen": "Kino wacht auf",
+              "kein-bild": "Kein Bild mehr",
+              "format-4-3": "Bildformat 4:3",
+              "format-16-9": "Bildformat 16:9",
+              "format-1-85": "Bildformat 1.85:1",
+              "format-2-0": "Bildformat 2:1",
+              "format-21-9": "Bildformat 21:9"
+            }
+          }
+        }
+      }
+    }
+  }
+}
